@@ -1,0 +1,20 @@
+create custom docker image and push it to hub.docker.com
+
+
+
+
+Docker file 1
+
+FROM ubuntu:latest
+RUN apt update
+RUN apt install -y nginx
+ADD index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+*******************************************************
+
+docker build -t bvijaycom/cloud_local:latest .    
+docker login 
+
+docker push bvijaycom/cloud_local:latest
