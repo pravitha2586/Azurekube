@@ -1,8 +1,8 @@
 create machines like below
 
-node1 --> 2 CPU ,4 GB RAM
-node2 --> 2 CPU, 4GB RAM
-node3 --> 2 CPU, 4GB RAM
+node1 --> 2 CPU ,4 GB RAM   -> UBUNTU 18.04lts
+node2 --> 2 CPU, 4GB RAM    -> UBUNTU 18.04lts
+node3 --> 2 CPU, 4GB RAM    -> UBUNTU 18.04lts
 node4 --> 2 CPU, 4GB RAM
 
 node1 is going to be the kubenetes master
@@ -14,9 +14,12 @@ in all the nodes run the following command
 
 Install Docker Engine (run all the nodes)
 ---------------------
+sudo su
 
 apt-get update && apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+[configure Kubernetes repository]
 
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
