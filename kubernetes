@@ -76,10 +76,11 @@ https://www.weave.works/docs/net/latest/kubernetes/kube-addon/ (kube proxy addon
 
 
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
-
+[This is the layer 3 networking driver]
 
 
 verify:
+watch -n 1 kubectl get nodes
 
 kubectl get nodes
 kubectl get pods --all-namespaces
@@ -94,6 +95,11 @@ loadbalancer-facebook.yaml
 loadbalancer-twiiter.yaml
 
 the above loadbalancer yaml will work only if you have the nodes in google cloud.because you will have the public ip.
+open the file from github and click raw and paste the link as below
+
+kubectl create ns facebook
+kubectl apply -f https://raw.githubusercontent.com/pravitha2586/Azurekube/main/nodeport-facebook.yaml
+kubectl get pod,services -n facebook -o wide
 
 nodeport-facebook.yaml
 nodeport-twitter.yaml
